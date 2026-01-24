@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="formulario">
+        <input type="text" id="nombre" placeholder="Escribe tu nombre">
+        <button onclick="cambiarTitulo()">Enviar</button>
+    </div>
+    
+    <h1 id="titulo"></h1>
+    <script>
+        document.title = "Hola"; 
+        nombre=document.getElementById("nombre").value;
+        function cambiarTitulo() {
+            const nombre = document.getElementById("nombre").value;
+            const titulo = document.getElementById("titulo");
+            if(nombre=="renato" || nombre=="Renato"){
+                document.title="chupalo renato"
+                title=document.getElementById("titulo")
+                title.style.color="red"
+                title.textContent="Eres un kabro renato"
+            }else if(nombre=="rodrigo" || nombre=="Rodrigo"){
+                document.title="Hola Dios"
+                title=document.getElementById("titulo")
+                title.textContent="Hola Dios"
+            }else if(nombre=="victor" || nombre=="Victor"){
+                document.title="chupalo victor"
+                title=document.getElementById("titulo")
+                title.style.color="red"
+                title.textContent="Eres un kabro victor"
+            }else{
+                document.title="bienvenido "+nombre
+                titulo.textContent = "Hola " + nombre;
+            }
+            formulario.style.display="none"
+        }
+    </script>
+</body>
+</html>
