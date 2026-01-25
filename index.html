@@ -12,26 +12,69 @@
     </div>
     
     <h1 id="titulo"></h1>
+    <img 
+        src="freddy.png" 
+        alt="Fue p" 
+        id="imgfreddy"
+        style="width:200px; cursor:pointer; display: none;"
+    >
+
+    <audio id="audiorisa">
+        <source src="risa-aquino.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="audiokira">
+        <source src="kira.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="audioL">
+        <source src="L.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="audiofreddy">
+        <source src="freddy.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
         document.title = "Hola"; 
         nombre=document.getElementById("nombre").value;
         function cambiarTitulo() {
+            const imgfreddy = document.getElementById("imgfreddy");
+            const audiofreddy = document.getElementById("audiofreddy");
+            imgfreddy.style.display="block"
+            imgfreddy.onclick = function() {
+                audiofreddy.currentTime = 0;
+                audiofreddy.play();
+                if(nombre=="renato" || nombre=="Renato"){
+                    title=document.getElementById("titulo")
+                    title.textContent="Eso haria kira";
+                }
+            };
             const nombre = document.getElementById("nombre").value;
             const titulo = document.getElementById("titulo");
             if(nombre=="renato" || nombre=="Renato"){
-                document.title="chupalo renato"
+                document.title="gaaaa"
                 title=document.getElementById("titulo")
                 title.style.color="red"
-                title.textContent="Eres un kabro renato"
+                title.textContent="tu ere kira"
+                const audiokira = document.getElementById("audiokira");
+                audiokira.currentTime = 0;
+                audiokira.play();
             }else if(nombre=="rodrigo" || nombre=="Rodrigo"){
-                document.title="Hola Dios"
+                document.title="Hola"
                 title=document.getElementById("titulo")
-                title.textContent="Hola Dios"
+                title.textContent="Hola R"
+                const audioL = document.getElementById("audioL");
+                audioL.currentTime = 0;
+                audioL.play();
             }else if(nombre=="victor" || nombre=="Victor"){
                 document.title="chupalo victor"
                 title=document.getElementById("titulo")
                 title.style.color="red"
-                title.textContent="Eres un kabro victor"
+                title.textContent="Fuera sapo"
+                const audiorisa = document.getElementById("audiorisa");    
+                audiorisa.currentTime = 0;
+                audiorisa.play(); 
             }else{
                 document.title="bienvenido "+nombre
                 titulo.textContent = "Hola " + nombre;
