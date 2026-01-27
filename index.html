@@ -12,13 +12,15 @@
     </div>
     
     <h1 id="titulo"></h1>
-    <img 
-        src="freddy.png" 
-        alt="Fue p" 
-        id="imgfreddy"
-        style="width:200px; cursor:pointer; display: none;"
-    >
-
+    <div>   
+        <img 
+            src="freddy.png" 
+            alt="Fue p" 
+            id="imgfreddy"
+            style="width:200px; cursor:pointer; display: none;"
+        >
+        <p id="chiste"></p>
+    </div> 
     <audio id="audiorisa">
         <source src="risa-aquino.mp3" type="audio/mpeg">
     </audio>
@@ -36,19 +38,47 @@
     </audio>
 
     <script>
+        function detenerAudios() {
+            const audios = document.querySelectorAll("audio");
+
+            audios.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        }
+
         document.title = "Hola"; 
         nombre=document.getElementById("nombre").value;
         function cambiarTitulo() {
             const imgfreddy = document.getElementById("imgfreddy");
             const audiofreddy = document.getElementById("audiofreddy");
             imgfreddy.style.display="block"
+            const chiste = document.getElementById("chiste");
             imgfreddy.onclick = function() {
+                detenerAudios();
                 audiofreddy.currentTime = 0;
                 audiofreddy.play();
                 if(nombre=="renato" || nombre=="Renato"){
                     title=document.getElementById("titulo")
                     title.textContent="Eso haria kira";
                 }
+                else {
+                    detenerAudios();
+                }
+                fetch("https://v2.jokeapi.dev/joke/Any?lang=es&blacklistFlags=nsfw")
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.type === "single") {
+                            chiste.textContent = data.joke;
+                        } else {
+                            chiste.textContent =
+                                data.setup + " — " + data.delivery;
+                        }
+                    })
+                    .catch(error => {
+                        chiste.textContent = "Error al obtener el chiste 😢";
+                        console.error(error);
+                    });
             };
             const nombre = document.getElementById("nombre").value;
             const titulo = document.getElementById("titulo");
