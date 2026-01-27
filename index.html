@@ -38,13 +38,17 @@
     </audio>
 
     <script>
-        function detenerAudios() {
-            const audios = document.querySelectorAll("audio");
+        let temporizador;
 
-            audios.forEach(audio => {
+        function detenerAudios(tiempoMs = 0) {
+            clearTimeout(temporizador);
+
+            temporizador = setTimeout(() => {
+                document.querySelectorAll("audio").forEach(audio => {
                 audio.pause();
                 audio.currentTime = 0;
-            });
+                });
+            }, tiempoMs);
         }
 
         document.title = "Hola"; 
@@ -55,12 +59,12 @@
             imgfreddy.style.display="block"
             const chiste = document.getElementById("chiste");
             imgfreddy.onclick = function() {
-                detenerAudios();
                 audiofreddy.currentTime = 0;
                 audiofreddy.play();
                 if(nombre=="renato" || nombre=="Renato"){
                     title=document.getElementById("titulo")
                     title.textContent="Eso haria kira";
+                    detenerAudios(1000);
                 }
                 else {
                     detenerAudios();
