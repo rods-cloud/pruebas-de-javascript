@@ -96,6 +96,11 @@
 .shake {
     animation: shake 0.3s;
 }
+body.freddy-enojado {
+  background-color: #8B0000; /* fondo rojo intenso */
+  transition: background-color 0.5s;
+}
+
 
 
 

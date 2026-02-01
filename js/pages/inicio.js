@@ -16,7 +16,7 @@
             audioSrc = "audios/kira.mp3";
             break;
         case "rodrigo":
-            mensaje = "<h2>Hola L</h2>";
+            mensaje = "<h2>Hola R</h2>";
             audioSrc = "audios/L.mp3";
             break;
         case "victor":
@@ -44,6 +44,7 @@
         audio.src = audioSrc;
         audio.volume = 0.25;
         audio.autoplay = true;
+        audio.id = "audioBienvenida";
         document.body.appendChild(audio);
     }
 })();
