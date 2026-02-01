@@ -62,22 +62,32 @@ function cargarPagina(item) {
 }
 
 function cambiarTitulo() {
-    const nombreInput = document.getElementById("nombre").value.trim().toLowerCase();
-    localStorage.setItem("nombreUsuario", nombreInput);
-    cargarPagina(menuItems[0]);
-    const header = document.getElementById("header");
-    header.style.display = "block";
-    const login = document.getElementById("loginclass");
-    login.style.display = "none";
-    login.classList.add("fade-out");
-    login.classList.remove("show");
-    setTimeout(() => {
-        login.classList.add("d-none");
-    }, 400);
+    const nombre2 = document.getElementById("nombre").value.trim();
+    if (nombre2) {
+        const nombreInput = document.getElementById("nombre").value.trim().toLowerCase();
+        localStorage.setItem("nombreUsuario", nombreInput);
+        cargarPagina(menuItems[0]);
+        const header = document.getElementById("header");
+        header.style.display = "block";
+        const login = document.getElementById("loginclass");
+        login.style.display = "none";
+        login.classList.add("fade-out");
+        login.classList.remove("show");
+        setTimeout(() => {
+            login.classList.add("d-none");
+        }, 400);
 
-    setTimeout(() => {
-        login.classList.add("d-none");
-    }, 500);
-    const navBar = document.getElementById("navbar");
-    navBar.style.display = "block";
+        setTimeout(() => {
+            login.classList.add("d-none");
+        }, 500);
+        const navBar = document.getElementById("navbar");
+        navBar.style.display = "block";
+    }
+    else {
+        const text = document.getElementById("nombre");
+        text.placeholder = "Por favor ingresa un nombre";
+        text.classList.add("shake");
+        setTimeout(() => text.classList.remove("shake"), 300);
+    }
+
 }

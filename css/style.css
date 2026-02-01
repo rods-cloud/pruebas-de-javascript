@@ -51,16 +51,16 @@
   }
 }
 .card-contacto {
-  background: #1e1e1e;
+  background: #4d4a4a;
   color: #f1f1f1;
   border: none;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-contacto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
 }
 .card-contacto img {
   border-radius: 50%;
@@ -69,3 +69,33 @@
   object-fit: cover;
   margin-bottom: 15px;
 }
+#navbar {
+    background-color: #363535 !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+#navbar .nav-link {
+    color: #ddd;
+    transition: color 0.3s ease;
+}
+
+#navbar .nav-link:hover {
+    color: #ff4444;
+}
+
+.nav-inicio {
+    color: #0d6efd !important;
+    font-weight: 600;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.3s;
+}
+
+
+
