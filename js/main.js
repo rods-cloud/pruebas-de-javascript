@@ -4,6 +4,17 @@ const menuItems = [
     { etiqueta: "Contactos", pagina: "pages/contactos.html", codigo: "js/pages/contactos.js" }
 ]
 
+let temporizador;
+
+function detenerAudios() {
+    document.querySelectorAll("audio").forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.remove();
+    });
+}
+
+
 const mainNav = document.getElementById("main-nav");
 const mainContent = document.getElementById("main-content");
 
@@ -51,6 +62,8 @@ function cargarPagina(item) {
 }
 
 function cambiarTitulo() {
+    const nombre = document.getElementById("nombre").value.trim().toLowerCase();
+    localStorage.setItem("nombreUsuario", nombre);
     cargarPagina(menuItems[0]);
     const header = document.getElementById("header");
     header.style.display = "block";
