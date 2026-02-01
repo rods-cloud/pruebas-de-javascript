@@ -62,8 +62,8 @@ function cargarPagina(item) {
 }
 
 function cambiarTitulo() {
-    const nombre = document.getElementById("nombre").value.trim().toLowerCase();
-    localStorage.setItem("nombreUsuario", nombre);
+    const nombreInput = document.getElementById("nombre").value.trim().toLowerCase();
+    localStorage.setItem("nombreUsuario", nombreInput);
     cargarPagina(menuItems[0]);
     const header = document.getElementById("header");
     header.style.display = "block";

@@ -32,7 +32,7 @@
             audioSrc = "audios/musica-tutorial.mp3";
             break;
         default:
-            mensaje = "<h2>Bienvenido a Papus 👋</h2>";
+            mensaje = "<h2>Bienvenido a Papus </h2>";
             break;
     }
 
