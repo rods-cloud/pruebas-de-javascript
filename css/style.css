@@ -6,3 +6,66 @@
   transition: opacity 0.5s ease;
   pointer-events: none;
 }
+.nav-inicio {
+    font-weight: 600;
+    color: #000 !important; 
+}
+
+.nav-inicio:hover {
+    color: #000 !important;
+}
+
+.fade-slide {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fade-slide.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.zoom-hover {
+  transition: transform 0.3s ease;
+}
+
+.zoom-hover:hover {
+  transform: scale(1.05);
+}
+
+.pulse:active {
+  transform: scale(0.95);
+}
+.slide-in {
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.card-contacto {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-contacto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+}
+.card-contacto img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
