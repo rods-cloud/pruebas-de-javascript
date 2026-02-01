@@ -1,120 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hola</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div id="formulario">
-        <input type="text" id="nombre" placeholder="Escribe tu nombre">
-        <button onclick="cambiarTitulo()">Enviar</button>
+    <header id="header" style="display: none;">
+        <div class="container">
+            <h1>Papus</h1>
+        </div>
+    </header>
+
+    <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary" style="display: none;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav" id="main-nav">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        
+    </main>
+
+    <div id="loginclass" class="container vh-100 d-flex justify-content-center align-items-center">
+        <div class="card shadow p-4" style="width: 22rem;">
+            <h4 class="text-center mb-3">Bienvenido</h4>
+
+            <input type="text" id="nombre" class="form-control mb-3" placeholder="Ingresa tu nombre">
+
+            <button class="btn btn-primary w-100" onclick="cambiarTitulo()">
+                Acceder
+            </button>
+        </div>
     </div>
-    
-    <h1 id="titulo"></h1>
-    <div>   
-        <img 
-            src="freddy.png" 
-            alt="Fue p" 
-            id="imgfreddy"
-            style="width:200px; cursor:pointer; display: none;"
-        >
-        <p id="chiste"></p>
-    </div> 
-    <audio id="audiorisa">
-        <source src="risa-aquino.mp3" type="audio/mpeg">
-    </audio>
 
-    <audio id="audiokira">
-        <source src="kira.mp3" type="audio/mpeg">
-    </audio>
-
-    <audio id="audioL">
-        <source src="L.mp3" type="audio/mpeg">
-    </audio>
-
-    <audio id="audiofreddy" class="no-detener">
-        <source src="freddy.mp3" type="audio/mpeg">
-    </audio>
-
-    <script>
-        let temporizador;
-
-        function detenerAudios(tiempoMs = 0) {
-            clearTimeout(temporizador);
-
-            temporizador = setTimeout(() => {
-                document.querySelectorAll("audio:not(.no-detener)").forEach(audio => {
-                    audio.pause();
-                    audio.currentTime = 0;
-                });
-            }, tiempoMs);
-        }
-
-        document.title = "Hola"; 
-        nombre=document.getElementById("nombre").value;
-        function cambiarTitulo() {
-            const imgfreddy = document.getElementById("imgfreddy");
-            const audiofreddy = document.getElementById("audiofreddy");
-            imgfreddy.style.display="block"
-            const chiste = document.getElementById("chiste");
-            imgfreddy.onclick = function() {
-                audiofreddy.currentTime = 0;
-                audiofreddy.play();
-                if(nombre=="renato" || nombre=="Renato"){
-                    title=document.getElementById("titulo")
-                    title.textContent="Eso haria kira";
-                    detenerAudios(1000);
-                }
-                else {
-                    detenerAudios(1);
-                }
-                fetch("https://v2.jokeapi.dev/joke/Any?lang=es&blacklistFlags=nsfw")
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.type === "single") {
-                            chiste.textContent = data.joke;
-                        } else {
-                            chiste.textContent =
-                                data.setup + " — " + data.delivery;
-                        }
-                    })
-                    .catch(error => {
-                        chiste.textContent = "Error al obtener el chiste 😢";
-                        console.error(error);
-                    });
-            };
-            const nombre = document.getElementById("nombre").value;
-            const titulo = document.getElementById("titulo");
-            if(nombre=="renato" || nombre=="Renato"){
-                document.title="gaaaa"
-                title=document.getElementById("titulo")
-                title.style.color="red"
-                title.textContent="tu ere kira"
-                const audiokira = document.getElementById("audiokira");
-                audiokira.currentTime = 0;
-                audiokira.play();
-            }else if(nombre=="rodrigo" || nombre=="Rodrigo"){
-                document.title="Hola"
-                title=document.getElementById("titulo")
-                title.textContent="Hola R"
-                const audioL = document.getElementById("audioL");
-                audioL.currentTime = 0;
-                audioL.play();
-            }else if(nombre=="victor" || nombre=="Victor"){
-                document.title="chupalo victor"
-                title=document.getElementById("titulo")
-                title.style.color="red"
-                title.textContent="Fuera sapo"
-                const audiorisa = document.getElementById("audiorisa");    
-                audiorisa.currentTime = 0;
-                audiorisa.play(); 
-            }else{
-                document.title="bienvenido "+nombre
-                titulo.textContent = "Hola " + nombre;
-            }
-            formulario.style.display="none"
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
