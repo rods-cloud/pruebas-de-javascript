@@ -32,7 +32,8 @@
             audioSrc = "audios/musica-tutorial.mp3";
             break;
         default:
-            mensaje = "<h2>Bienvenido a Papus </h2>";
+            mensaje = "<h2>Bienvenido a Papus 👋</h2>";
+            audioSrc = "audios/bienvenida.mp3";
             break;
     }
 
@@ -41,6 +42,7 @@
     if (audioSrc) {
         const audio = document.createElement("audio");
         audio.src = audioSrc;
+        audio.volume = 0.25;
         audio.autoplay = true;
         document.body.appendChild(audio);
     }
