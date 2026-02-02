@@ -30,6 +30,14 @@ menuItems.forEach(item => {
     if (item.etiqueta === "Inicio") {
         menuA.classList.add("nav-inicio");
     }
+    menuA.addEventListener("click", () => {
+        menuA.classList.add("rebote");
+
+        setTimeout(() => {
+            menuA.classList.remove("rebote");
+        }, 100);
+    });
+
 
     menuA.addEventListener("click", () => {
         fetch(item.pagina)
