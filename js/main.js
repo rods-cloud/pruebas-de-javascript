@@ -1,6 +1,7 @@
 const menuItems = [
     { etiqueta: "Inicio", pagina: "pages/inicio.html", codigo: "js/pages/inicio.js" },
     { etiqueta: "Freddy", pagina: "pages/freddy.html", codigo: "js/pages/freddy.js" },
+    { etiqueta: "Juego", pagina: "pages/juego.html", codigo: "js/pages/juego.js" },
     { etiqueta: "Contactos", pagina: "pages/contactos.html", codigo: "js/pages/contactos.js" }
 ]
 
@@ -40,6 +41,17 @@ menuItems.forEach(item => {
 
 
     menuA.addEventListener("click", () => {
+        mainNav.querySelectorAll(".nav-link").forEach(link => {
+            link.classList.remove("active");
+            if (link.classList.contains("nav-inicio")) {
+                link.classList.add("active-inicio");
+            }
+        });
+        if( item.etiqueta === "Inicio"){
+            menuA.classList.remove("active-inicio");
+        }else{
+        menuA.classList.add("active");}
+        
         fetch(item.pagina)
             .then(response => response.text())
             .then(data => {
