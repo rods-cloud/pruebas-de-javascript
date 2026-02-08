@@ -19,5 +19,12 @@
         "foto": "images/contactos/victor.png",
         "link": "https://www.facebook.com/share/1FUvYtdPXn/",
         "cargo": "kira 2"
+    },
+    {
+        "nombre": "Charlie",
+        "apellido": "Flores",
+        "foto": "images/contactos/charlie.png",
+        "link": "https://www.youtube.com/watch?v=GBIIQ0kP15E",
+        "cargo": "Perro sonso"
     }
 ]

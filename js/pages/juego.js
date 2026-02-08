@@ -13,15 +13,21 @@
             if (ramdom === 2) cpu = "piedra";
             document.getElementById("seleccion-computadora").src = opciones[ramdom];
             if (imagenSeleccionada === document.getElementById("seleccion-computadora").src) {
-                document.getElementById("resultado").textContent = "¡Empate!";
+                const resultado = document.getElementById("resultado");
+                resultado.textContent = "¡Empate!";
+                resultado.style.color = "orange";
             } else if (
                 (element.id === "piedra" && cpu === "tijera") ||
                 (element.id === "papel" && cpu === "piedra") ||
                 (element.id === "tijera" && cpu === "papel")
             ) {
-                document.getElementById("resultado").textContent = "¡Ganaste!";
+                const resultado = document.getElementById("resultado");
+                resultado.style.color = "green";
+                resultado.textContent = "¡Ganaste!";
             } else {
-                document.getElementById("resultado").textContent = "¡Perdiste!";
+                const resultado = document.getElementById("resultado");
+                resultado.style.color = "red";
+                resultado.textContent = "¡Perdiste!";
             }
             const imgUsuario = document.getElementById("seleccion-usuario");
             const imgCpu = document.getElementById("seleccion-computadora");
